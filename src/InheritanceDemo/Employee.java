@@ -1,17 +1,26 @@
 package InheritanceDemo;
 
-public class Employee {
+public /*final*/ class Employee {
 
     int salary = 35000;
     void empWork()
     {
         System.out.println("empWork");
     }
+    /*final*/ void calculateSalary()
+    {
+        System.out.println("Employee calculateSalary");
+    }
 }
 
 class Programmer extends Employee
 {
     int bonus = 12000;
+
+     void calculateSalary()
+    {
+        System.out.println("Programmer calculateSalary");
+    }
     void programmerWork()
     {
         System.out.println("programmerWork");
@@ -24,5 +33,8 @@ class Programmer extends Employee
 
         p.salary = 90000;
         p.empWork();
+
+        Employee ob = new Programmer();
+        ob.calculateSalary();
     }
 }
